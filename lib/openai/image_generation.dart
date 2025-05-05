@@ -16,14 +16,16 @@ Future<Uint8List>generateOpenAImage(String userInput) async {
 
   // Get the URL of the generated image
   final imageUrl = image.data.first.url ?? "No image URL available";
+  //print(imageUrl);
   // Use your proxy endpoint (replace <your-vercel-url> with your actual deployment URL)
   final proxyUrl = 'https://omnibot-chat.vercel.app/api/image-proxy?url=${Uri.encodeComponent(imageUrl)}';
+  print(proxyUrl);
     // Fetch image bytes
   final response = await http.get(Uri.parse(proxyUrl));
-
+  print(response.statusCode);
  
   if (response.statusCode == 200) {
-    //print(response.bodyBytes);
+    print(response.bodyBytes);
     return response.bodyBytes;
   } else {
     throw Exception('Failed to load image');
