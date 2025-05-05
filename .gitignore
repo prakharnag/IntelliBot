@@ -1,0 +1,34 @@
+# Flutter/Dart related
+**/build/
+.dart_tool/
+.packages
+.pub/
+.flutter-plugins
+.flutter-plugins-dependencies
+.generated/
+
+# IntelliJ related
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# Visual Studio Code settings
+.vscode/
+
+# macOS specific
+macos/Flutter/ephemeral/
+
+# Android specific
+.gradle/
+local.properties
+**/android/app/debug.keystore
+
+# iOS specific
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+
+# Environment files (keep sensitive keys local)
+.env
