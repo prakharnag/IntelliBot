@@ -1,4 +1,4 @@
-export default async (req, res) => {
+module.exports = async (req, res) => {
     // Retrieve the external image URL from the query parameter "url"
     const { url } = req.query;
     if (!url) {
