@@ -32,3 +32,4 @@ ios/Flutter/Flutter.framework
 
 # Environment files (keep sensitive keys local)
 .env
+lib/env/env.g.dart
