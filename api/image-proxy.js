@@ -1,4 +1,13 @@
 export default async function handler(req, res) {
+    // Handle preflight CORS request
+    if (req.method === 'OPTIONS') {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.status(200).end();
+      return;
+    }
+  
     const { url } = req.query;
   
     if (!url) {
@@ -19,10 +28,9 @@ export default async function handler(req, res) {
   
       // ✅ Add CORS headers
       res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'GET');
+      res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   
-      // Pipe the image directly to the response
       const buffer = await response.arrayBuffer();
       res.status(200).send(Buffer.from(buffer));
     } catch (err) {
